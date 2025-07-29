@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Admin panel
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Статус</th>
+        <th>Пользователь</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.completed ? 'Выполнена' : 'Не выполнена'}"></td>
+        <td th:text="${task.user.username}"></td>
+        <td><a th:href="@{/admin/tasks/{id}(id=${task.id})}">Открыть</a></td>
+
+    </tr>
+</table>
+</body>
+</html>

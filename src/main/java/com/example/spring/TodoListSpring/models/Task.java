@@ -9,7 +9,7 @@ public class Task {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "title")
     private String title;
@@ -19,6 +19,10 @@ public class Task {
 
     @Column(name = "completed")
     private boolean completed;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Task(String title, String description, boolean completed) {
         this.title = title;
@@ -30,11 +34,11 @@ public class Task {
 
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -60,5 +64,13 @@ public class Task {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="'Задача: ' + ${task.title}"></h1>
+<p><strong>Описание:</strong> <span th:text="${task.description}"></span></p>
+<p><strong>Выполнена:</strong> <span th:text="${task.completed} ? 'Да' : 'Нет'"></span></p>
+<p><strong>Пользователь:</strong> <span th:text="${task.user.username}"></span></p>
+</body>
+</html>
